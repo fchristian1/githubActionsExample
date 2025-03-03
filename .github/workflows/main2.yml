@@ -1,0 +1,23 @@
+name: Jobs
+on:
+  push:
+    branches:
+    - main
+jobs:
+  job-a:
+    name: Job A
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Dies ist Job A"
+  job-b:
+    name: Job B
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Dies ist Jon B"
+    needs: job-a
+  job-c:
+    name: Job C
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Dies ist Jon C"
+    needs: job-b
